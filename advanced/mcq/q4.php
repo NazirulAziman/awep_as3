@@ -134,7 +134,7 @@
 <body>
     <!--starting-->
     <div class="qBox" id="question">
-        <h2>Question 1</h2>
+        <h2>Question 4</h2>
         <h1>Multiple <br> Choice</h1>
     </div>
     <div class="goBtn" id="button" onclick="start()">
