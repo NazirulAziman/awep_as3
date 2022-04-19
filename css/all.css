@@ -1,0 +1,10 @@
+body{
+    margin: 0;
+    scroll-behaviour: smooth;
+    font-family: arial;
+    background: url("../img/bg1.png");
+}
+.container{
+    display: flex;
+    flex: wrap;
+}
