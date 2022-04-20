@@ -18,39 +18,33 @@
 
 <!--Internal css here-->
 <style>
-    #left{
-        flex: 70%; 
+    .board{
+        display: block;
+        width: 1200px; height: 850px;
+        border-radius: 30px;
+        margin-left: 100px; margin-top: 150px;
+        background-color: white;
+        box-shadow: -15px 15px 2px 3px blue;
+        padding-left: 30px;
+        font-family: indie flower;
+        font-size: 45px;
+        color: blue;
+    }
+    #left, #right{
+        flex: 60%;
         height: 100vh;
     }
     #right{
-        flex: 30%;
-        height: 100vh;
+        flex: 40%;
     }
-    .title{
+    #myPic{
         display: block;
-        width: 900px; height: 650px;
-        border-radius: 30px;
-        margin: auto; margin-top: 250px;
-        background-color: white;
-        box-shadow: -15px 15px 2px 3px blue;
-        padding-left: 130px;
-        font-size: 45px;
-        font-family: indie flower;
-        color: blue;
-    }
-    h1{
-        padding-top: 130px;
-        font-size: 100px;
-        font-family: permanent marker;
-        color: blue;
-    }
-    img{
-        max-width: 1000px;
+        max-width: 700px;
         margin: auto; margin-top: 200px;
     }
     .btn{
         display: block;
-        width: 200px; height: 90px;
+        width: 300px; height: 90px;
         border: none; border-radius: 30px;
         text-align: center;
         font-size: 36px;
@@ -58,7 +52,7 @@
         font-family: indie flower;
         font-weight: bold;
         color: blue;
-        margin-left: 70px; margin-top: 100px;
+        margin: auto; margin-top: 100px;
         background-color: white;
         box-shadow: -10px 10px 2px 3px blue;
     }
@@ -72,15 +66,14 @@
 <body>
     <div class="container">
         <div id="left">
-            <div class="title">
-                <h1>TRIVIAME</h1>
-                <p>But Who's The smartest<br>in this trivia game?</p>
+            <div class="board">
+            <h1>Scoreboard</h1>
             </div>
         </div>
         <div id="right">
-            <img src="img/nitendo.gif" alt="Nitendo Game">
-            <form action="instruction.php" method="post">
-                <input type="submit" class="btn" value="Start">
+            <img src="img/clap.gif" alt="firework" id="myPic">
+            <form action="" method="post">
+                <input type="submit" class="btn" value="Home">
             </form>
         </div>
     </div>
