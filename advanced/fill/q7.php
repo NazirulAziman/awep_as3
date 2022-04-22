@@ -142,7 +142,7 @@
         <input type="text" id="answer">
         <p style="text-align: center">Answer List : <br> Oxygen / Carbon Dioxide / Nitrogen / Hydrogen / Argon</p>
     </div>
-        <input type="submit" class="btn" value="Submit" id="submit">
+        <input type="button" class="btn" value="Submit" id="submit" onclick="sub()">
     </form>
 </body>
 
@@ -157,6 +157,21 @@
         document.getElementById("myPic").style.display = "block";
         document.getElementById("quest").style.display = "block";
         document.getElementById("submit").style.display = "block";
+    }
+
+
+    function sub(){
+        var input = document.getElementById("answer"); //get id
+        var exist = localStorage.getItem("score");
+
+        if(input.value == "carbon dioxide" || input.value == "Carbon Dioxide" || input.value == "Carbon dioxide"){
+            var final = parseInt(exist)+1; //add
+        }else{
+            var final = parseInt(exist)+0; //add
+        }
+        
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="q8.php"; //to next page
     }
 </script>
 </html>

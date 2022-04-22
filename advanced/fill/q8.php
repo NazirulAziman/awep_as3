@@ -140,9 +140,9 @@
     <div id="quest">
         <h3>______ is the strongest metal.</h3>
         <input type="text" id="answer">
-        <p style="text-align: center">Answer List : <br> Bronze / Iron / Aluminium / Copper / Steel</p>
+        <p style="text-align: center">Answer List : <br> Tungsten / Iron / Aluminium / Copper / Steel</p>
     </div>
-        <input type="submit" class="btn" value="Submit" id="submit">
+        <input type="submit" class="btn" value="Submit" id="submit" onclick="sub()">
     </form>
 </body>
 
@@ -157,6 +157,21 @@
         document.getElementById("myPic").style.display = "block";
         document.getElementById("quest").style.display = "block";
         document.getElementById("submit").style.display = "block";
+    }
+
+
+    function sub(){
+        var input = document.getElementById("answer"); //get id
+        var exist = localStorage.getItem("score");
+
+        if(input.value == "Tungsten" || input.value == "tungsten"){
+            var final = parseInt(exist)+1; //add
+        }else{
+            var final = parseInt(exist)+0; //add
+        }
+        
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="q9.php"; //to next page
     }
 </script>
 </html>

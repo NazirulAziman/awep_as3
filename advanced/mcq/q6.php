@@ -179,5 +179,29 @@
         document.getElementById("second").style.display = "block";
         document.getElementById("third").style.display = "block";
     }
+
+    function first(){
+        var input = document.getElementById("first"); //get id
+        var exist = localStorage.getItem("score");
+        var final = parseInt(exist)+1; //add
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="q7.php"; //to next page
+    }
+
+    function sec(){
+        var input = document.getElementById("second"); //get id
+        var exist = localStorage.getItem("score");
+        var final = parseInt(exist)+0; //add
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="q7.php"; //to next page
+    }
+
+    function third(){
+        var input = document.getElementById("third"); //get id
+        var exist = localStorage.getItem("score");
+        var final = parseInt(exist)+0; //add
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="q7.php"; //to next page
+    }
 </script>
 </html>

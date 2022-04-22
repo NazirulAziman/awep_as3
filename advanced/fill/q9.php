@@ -138,11 +138,11 @@
     <form action="q10.php" method="post">
     <img src="../../img/fill.gif" alt="Magic rat" id="myPic">
     <div id="quest">
-        <h3>Ottawa is ______ country's capital</h3>
+        <h3> Ottawa is ______'s capital city</h3>
         <input type="text" id="answer">
         <p style="text-align: center">Answer List : <br> China / German / Canada / Brunei / Egypt</p>
     </div>
-        <input type="submit" class="btn" value="Submit" id="submit">
+        <input type="submit" class="btn" value="Submit" id="submit" onclick="sub()">
     </form>
 </body>
 
@@ -157,6 +157,21 @@
         document.getElementById("myPic").style.display = "block";
         document.getElementById("quest").style.display = "block";
         document.getElementById("submit").style.display = "block";
+    }
+
+
+    function sub(){
+        var input = document.getElementById("answer"); //get id
+        var exist = localStorage.getItem("score");
+
+        if(input.value == "canada" || input.value == "Canada"){
+            var final = parseInt(exist)+1; //add
+        }else{
+            var final = parseInt(exist)+0; //add
+        }
+        
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="../enumeration/q10.php"; //to next page
     }
 </script>
 </html>
