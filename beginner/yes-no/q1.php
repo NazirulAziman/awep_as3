@@ -145,12 +145,12 @@
     </div>
     <div class="container" id="answer">
         <div id="left">
-            <div id="yes">
+            <div id="yes" onclick="addYes()">
                 <p class="txt">YES</p>
             </div>
         </div>
         <div id="right">
-            <div id="no">
+            <div id="no" onclick="addNo()">
                 <p class="txt">NO</p>
             </div>
         </div>
@@ -169,6 +169,18 @@
         document.getElementById("quest").style.display = "block";
         document.getElementById("yes").style.display = "block";
         document.getElementById("no").style.display = "block";
+    }
+
+    function addYes(){
+        var input = document.getElementById("yes"); //get id
+        localStorage.setItem("score", "1"); //save the value input
+        window.location.href="q2.php"; //to next page
+    }
+
+    function addNo(){
+        var input = document.getElementById("no"); //get id
+        localStorage.setItem("score", "0"); //save the value input
+        window.location.href="q2.php"; //to next page
     }
 </script>
 </html>

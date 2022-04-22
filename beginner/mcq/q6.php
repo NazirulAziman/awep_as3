@@ -148,17 +148,17 @@
     </div>
     <div class="container" id="answer">
         <div id="left">
-            <div id="first">
+            <div id="first" onclick="first()">
                 <p class="txt">Moo</p>
             </div>
         </div>
         <div id="center">
-            <div id="second">
+            <div id="second" onclick="sec()">
                 <p class="txt">Oink</p>
             </div>
         </div>
         <div id="right">
-            <div id="third">
+            <div id="third" onclick="third()">
                 <p class="txt">Meow</p>
             </div>
         </div>
@@ -178,6 +178,30 @@
         document.getElementById("first").style.display = "block";
         document.getElementById("second").style.display = "block";
         document.getElementById("third").style.display = "block";
+    }
+
+    function first(){
+        var input = document.getElementById("first"); //get id
+        var exist = localStorage.getItem("score");
+        var final = parseInt(exist)+1; //add
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="../fill/q7.php"; //to next page
+    }
+
+    function sec(){
+        var input = document.getElementById("second"); //get id
+        var exist = localStorage.getItem("score");
+        var final = parseInt(exist)+0; //add
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="../fill/q7.php"; //to next page
+    }
+
+    function third(){
+        var input = document.getElementById("third"); //get id
+        var exist = localStorage.getItem("score");
+        var final = parseInt(exist)+0; //add
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="../fill/q7.php"; //to next page
     }
 </script>
 </html>
