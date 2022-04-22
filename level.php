@@ -87,7 +87,7 @@
     
     <div class="container">
         <div id="left">
-            <div id="beginner">
+            <div id="beginner" onclick="addLevel1()">
                 <h1 class="levelTxt">Beginner</h1>
             </div>
             <form action="player.php" method="post">
@@ -95,10 +95,24 @@
             </form>
         </div>
         <div id="right">
-            <div id="advanced">
+            <div id="advanced" onclick="addLevel2()">
                 <h1 class="levelTxt">Advanced</h1>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+    function addLevel1(){
+        var input = document.getElementById("beginner"); //get id
+        localStorage.setItem("level", "beginner"); //save the value input
+        window.location.href="beginner/yes-no/q1.php"; //to next page
+    }
+
+    function addLevel2(){
+        var input = document.getElementById("advanced"); //get id
+        localStorage.setItem("level", "advanced"); //save the value input
+        window.location.href="advanced/yes-no/q1.php"; //to next page
+    }
+</script>
 </html>

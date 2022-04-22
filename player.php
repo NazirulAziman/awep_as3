@@ -35,6 +35,11 @@
         flex: 50%;
         height: 62.5vh;
     }
+    #full{
+        display: none;
+        flex: 100%;
+        height: 62.5vh;
+    }
     #add, #choose{
         display: block;
         width: 550px; height: 110px;
@@ -77,6 +82,34 @@
         box-shadow: -10px 10px 2px 3px #CC7F7F;
         color: white;
     }
+    .insert{
+        display: block;
+        width: 1000px; height: 350px;
+        margin: auto; margin-top: 250px;
+    }
+    #myInput{
+        display: block;
+        border: 4px solid; border-radius: 30px;
+        width: 550px; height: 70px;
+        margin: auto;
+        color: black;
+        font-size: 40px; text-align: center;
+    }
+    #save{
+        display: block;
+        width: 300px; height: 80px;
+        border-radius: 30px;
+        margin: auto; margin-top: 150px;
+        background-color: white;
+        box-shadow: -10px 10px 2px 3px blue;
+        font-size: 40px;
+        border: none; color: blue;
+        font-family: indie flower; font-weight: bold;
+    }
+    #save:hover{
+        cursor: pointer;
+        color: orange;
+    }
 </style>
 <body>
     <div class="player">
@@ -85,7 +118,7 @@
     
     <div class="container">
         <div id="left">
-            <div id="add">
+            <div id="add" onclick="add()">
                 <h1 class="levelTxt">Add new player</h1>
             </div>
             <form action="index.php" method="post">
@@ -97,6 +130,46 @@
                 <h1 class="levelTxt">Choose existing player</h1>
             </div>
         </div>
+        <div id="full">
+            <div class="insert">
+                <input type="text" id="myInput" placeholder="Enter Name here">
+                <input type="button" id="save" value="Submit" onclick="datasave()">
+            </div>
+            <div id="exit" onclick="back()">
+                <h1 class="levelTxt" style="line-height: 90px; margin-top: 150px;">Back</h1>
+            </div>
+        </div>
     </div>
 </body>
+
+
+<!--Script here-->
+<script>
+    function add(){
+        //starting
+        document.getElementById("left").style.display = "none";
+        document.getElementById("right").style.display = "none";
+
+        //final
+        document.getElementById("full").style.display = "block";
+        
+    }
+
+
+    function back(){
+        //starting
+        document.getElementById("left").style.display = "block";
+        document.getElementById("right").style.display = "block";
+
+        //final
+        document.getElementById("full").style.display = "none";
+    }
+
+    
+    function datasave(){
+        var input = document.getElementById("myInput"); //get id
+        localStorage.setItem("name", input.value); //save the value input
+        window.location.href="level.php"; //to next page
+    }
+</script>
 </html>
