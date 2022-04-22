@@ -135,15 +135,13 @@
     </div>
 
     <!--final-->
-    <form action="q9.php" method="post">
     <img src="../../img/fill.gif" alt="Magic rat" id="myPic">
     <div id="quest">
         <h3>The rabbit like to ______ carrots</h3>
         <input type="text" id="answer">
         <p style="text-align: center">Answer List : <br> Touch / Eat / Throw / Kiss / Cut</p>
     </div>
-        <input type="submit" class="btn" value="Submit" id="submit">
-    </form>
+    <input type="submit" class="btn" value="Submit" id="submit" onclick="sub()">
 </body>
 
 <!-- Script here -->
@@ -157,6 +155,20 @@
         document.getElementById("myPic").style.display = "block";
         document.getElementById("quest").style.display = "block";
         document.getElementById("submit").style.display = "block";
+    }
+
+    function sub(){
+        var input = document.getElementById("answer"); //get id
+        var exist = localStorage.getItem("score");
+
+        if(input.value == "Eat" || input.value == "eat"){
+            var final = parseInt(exist)+1; //add
+        }else{
+            var final = parseInt(exist)+0; //add
+        }
+        
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="q9.php"; //to next page
     }
 </script>
 </html>

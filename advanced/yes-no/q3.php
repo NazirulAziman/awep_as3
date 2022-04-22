@@ -169,5 +169,21 @@
         document.getElementById("yes").style.display = "block";
         document.getElementById("no").style.display = "block";
     }
+
+    function addYes(){
+        var input = document.getElementById("yes"); //get id
+        var exist = localStorage.getItem("score");
+        var final = parseInt(exist)+0; //add
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="q3.php"; //to next page
+    }
+
+    function addNo(){
+        var input = document.getElementById("no"); //get id
+        var exist = localStorage.getItem("score");
+        var final = parseInt(exist)+1; //add
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="q3.php"; //to next page
+    }
 </script>
 </html>

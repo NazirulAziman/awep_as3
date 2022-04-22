@@ -142,7 +142,7 @@
         <input type="text" id="answer">
         <p style="text-align: center">Answer List : <br> Touch / Pull / Sing / Brush / Lose</p>
     </div>
-        <input type="submit" class="btn" value="Submit" id="submit">
+        <input type="submit" class="btn" value="Submit" id="submit" onclick="sub()">
     </form>
 </body>
 
@@ -157,6 +157,20 @@
         document.getElementById("myPic").style.display = "block";
         document.getElementById("quest").style.display = "block";
         document.getElementById("submit").style.display = "block";
+    }
+
+    function sub(){
+        var input = document.getElementById("answer"); //get id
+        var exist = localStorage.getItem("score");
+
+        if(input.value == "Brush" || input.value == "brush"){
+            var final = parseInt(exist)+1; //add
+        }else{
+            var final = parseInt(exist)+0; //add
+        }
+        
+        localStorage.setItem("score", final); //save the value input
+        window.location.href="../enumeration/q10.php"; //to next page
     }
 </script>
 </html>
