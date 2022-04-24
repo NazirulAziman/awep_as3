@@ -19,11 +19,11 @@
 <!--Internal css here-->
 <style>
     #left{
-        flex: 70%; 
+        flex: 60%; 
         height: 100vh;
     }
     #right{
-        flex: 30%;
+        flex: 40%;
         height: 100vh;
     }
     .title{
@@ -46,7 +46,7 @@
     }
     img{
         max-width: 1000px;
-        margin: auto; margin-top: 200px;
+        margin-left: 200px; margin-top: 200px;
     }
     .btn{
         display: block;
@@ -58,7 +58,7 @@
         font-family: indie flower;
         font-weight: bold;
         color: blue;
-        margin-left: 70px; margin-top: 100px;
+        margin: auto; margin-top: 100px;
         background-color: white;
         box-shadow: -10px 10px 2px 3px blue;
     }
@@ -67,6 +67,11 @@
         color: white;
         cursor: pointer;
         box-shadow: -10px 10px 2px 3px #3967D8;
+    }
+
+    #lft, #rgt{
+        flex: 50%;
+        height: 10vh;
     }
 </style>
 <body>
@@ -79,10 +84,31 @@
         </div>
         <div id="right">
             <img src="img/nitendo.gif" alt="Nitendo Game">
-            <form action="instruction.php" method="post">
-                <input type="submit" class="btn" value="Start">
-            </form>
+            <div class="container">
+                <div id="lft">
+                    <input type="submit" class="btn" value="Start" onclick="sub()">
+                </div>
+                <div id="rgt">
+                    <input type="button" class="btn" value="Scoreboard" onclick="sub1()">
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
+<!--script here-->
+<script>
+    function sub(){
+        localStorage.setItem("name", "");
+        localStorage.setItem("level", "");
+        localStorage.setItem("score", "");
+        localStorage.setItem("time", "");
+
+        window.location.href = "player.php";
+    }
+
+    function sub1(){
+        window.location.href = "scoreboard.php";
+    }
+</script>
 </html>

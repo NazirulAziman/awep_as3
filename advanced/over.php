@@ -46,7 +46,7 @@
     #myBtn{
         display: block;
         width: 250px; height: 100px;
-        border-radius: 30px;
+        border-radius: 50px;
         margin-left: 2000px; margin-top: 90px;
         background-color: blue;
         box-shadow: -15px 15px 2px 3px yellow;
@@ -66,6 +66,7 @@
     <input type="button" id="myBtn" onclick="sub()" value="Home">
 </body>
 
+<!--script here-->
 <script>
     finalScore = localStorage.getItem("score");
     document.getElementById('myText').innerHTML = finalScore + " / 12";

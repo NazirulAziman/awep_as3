@@ -72,7 +72,7 @@
         </div>
         <div id="right">
             <img src="img/clap.gif" alt="firework" id="myPic">
-            <form action="" method="post">
+            <form action="index.php" method="post">
                 <input type="submit" class="btn" value="Home">
             </form>
         </div>
