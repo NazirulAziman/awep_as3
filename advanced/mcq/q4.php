@@ -70,7 +70,7 @@
         font-family: indie flower;
     }
     #quest{
-        display: none;;
+        display: none;
         width: 1500px; height: 400px;
         border: none; border-radius: 30px;
         font-size: 36px;
