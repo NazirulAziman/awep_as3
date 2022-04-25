@@ -58,7 +58,7 @@
     }
 
     #forName, #forLevel, #forScore, #forTime, #forCat{
-       display: none;
+      display: none;
     }
 </style>
 <body>
@@ -73,38 +73,31 @@
         <input type="text" id="forScore" name="score">
         <input type="text" id="forTime" name="time">
         <input type="text" id="forCat" name="cat">
-        <input type="submit" id="myBtn" value="save">
+        <input type="submit" id="myBtn" value="Save" name="submit">
     </form>
 
 
     <!--php mysql database here-->
     <?php
-    // Create connection
-    $conn = new mysqli('localhost', 'root', '', 'trivia');
+    if(isset($_POST['submit'])){
+        $conn = mysqli_connect('localhost', 'root', '', 'trivia');
 
-    //get values
-    $name = $_POST['name'];
-    $score = $_POST['score'];
-    $level = $_POST['level'];
-    $time = $_POST['time'];
-    $cat = $_POST['cat'];
+        $name = $_POST['name'];
+        $score = $_POST['score'];
+        $level = $_POST['level'];
+        $time = $_POST['time'];
+        $cat = $_POST['cat'];
+        
 
+        if(!empty($name)){
+            $sql = "INSERT INTO players (`username`,`score`,`level`,`time`,`categories`)
+                    VALUES ('$name','$score','$level','$time','$cat')";
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+            $result = mysqli_query($conn,$sql);
+            header("refresh: 1; url=../../index.php");
+        }
     }
-
-    $sql = "INSERT INTO players (`username`,`score`,`level`,`time`,`categories`)
-    VALUES ('$name','$score','$level','$time','$cat')";
-
-    if ($conn->query($sql) === TRUE) {
-        //echo "New record created successfully";
-    } else {
-        //echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close();
+    
     ?>
 </body>
 
@@ -121,7 +114,6 @@
         document.getElementById('congrats').innerHTML = "Try Again! " + username;
     }
 
-
     //get item from localstorage
     var myName = localStorage.getItem("name");
     var myLevel = localStorage.getItem("level");
@@ -135,10 +127,6 @@
     document.getElementById("forScore").value = myScore;
     document.getElementById("forTime").value = myTime;
     document.getElementById("forCat").value = myCat;
-
-    setTimeout(function(){
-        window.location.href = "../../index.php"
-    },10000)
 
 </script>
 

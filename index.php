@@ -99,6 +99,18 @@
 <!--script here-->
 <script>
     function sub(){
+        localStorage.setItem("id", "0");
+        var myId = localStorage.getItem("id")
+        for(var i = 0; i < myId.length; i++){
+            if(myId[i] == null || myId[i] == ""){
+                localStorage.setItem("id", "0");
+            }else{
+                var newId = parseInt(myId) + 1;
+                localStorage.setItem("id", newId);
+            }
+        }
+
+
         localStorage.setItem("name", "");
         localStorage.setItem("level", "");
         localStorage.setItem("score", "0");
