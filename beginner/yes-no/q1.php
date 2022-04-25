@@ -214,7 +214,7 @@
 
     function addYes(){
         var input = document.getElementById("yes"); //get id
-        localStorage.setItem("score", "1"); //save the value input
+        localStorage.setItem("score", "0"); //save the value input
         
         if (stoptime == false) {
             stoptime = true;
@@ -231,7 +231,7 @@
 
     function addNo(){
         var input = document.getElementById("no"); //get id
-        localStorage.setItem("score", "0"); //save the value input
+        localStorage.setItem("score", "1"); //save the value input
 
         if (stoptime == false) {
             stoptime = true;

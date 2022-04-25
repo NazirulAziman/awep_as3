@@ -127,7 +127,6 @@
     document.getElementById("forScore").value = myScore;
     document.getElementById("forTime").value = myTime;
     document.getElementById("forCat").value = myCat;
-
 </script>
 
 
