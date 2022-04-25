@@ -92,7 +92,7 @@
                         <img src="img/float.gif" alt="bmo floating" style="padding-top: 100px;">
                     </div>
                     <div id="sRight">
-                        <form action="categories.php" method="post">
+                        <form action="player.php" method="post">
                             <input type="submit" class="btn" value="Next >">
                         </form>
                     </div>
@@ -110,7 +110,7 @@
                 <p class="insText">Players aren't allowed to ask <br> for help, and that includes <br> looking up answers online</p>
             </div>
             <div class="instruction">
-                <p class="insText" style="padding-top: 60px;">The quiz master's <br> decisions are final</p>
+                <p class="insText" style="padding-top: 60px;">The quiz is limited to<br> 1 minute per question</p>
             </div>
         </div>
     </div>

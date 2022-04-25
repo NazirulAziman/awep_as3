@@ -210,7 +210,7 @@
             localStorage.setItem("sec", seconds);
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
-            window.location.href="../mcq/q4.php"; //to next page
+            window.location.href="over.php"; //to next page
         },60000);
     }
 
@@ -230,7 +230,7 @@
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
         }
-        window.location.href="../mcq/q4.php"; //to next page
+        window.location.href="over.php"; //to next page
     }
 
     function addNo(){
@@ -248,7 +248,7 @@
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
         }
-        window.location.href="../mcq/q4.php"; //to next page
+        window.location.href="over.php"; //to next page
     }
 
     //function for timer

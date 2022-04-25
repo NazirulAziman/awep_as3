@@ -219,7 +219,7 @@
             localStorage.setItem("sec", seconds);
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
-            window.location.href="q5.php"; //to next page
+            window.location.href="q2.php"; //to next page
         },60000);
     }
 
@@ -237,7 +237,7 @@
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
         }
-        window.location.href="q5.php"; //to next page
+        window.location.href="q2.php"; //to next page
     }
 
     function second(){
@@ -254,7 +254,7 @@
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
         }
-        window.location.href="q5.php"; //to next page
+        window.location.href="q2.php"; //to next page
     }
 
     function third(){
@@ -271,7 +271,7 @@
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
         }
-        window.location.href="q5.php"; //to next page
+        window.location.href="q2.php"; //to next page
     }
 
     //function for timer

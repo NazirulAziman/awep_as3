@@ -106,13 +106,13 @@
     function addLevel1(){
         var input = document.getElementById("beginner"); //get id
         localStorage.setItem("level", "beginner"); //save the value input
-        window.location.href="beginner/yes-no/q1.php"; //to next page
+        window.location.href="beginner/categories.php"; //to next page
     }
 
     function addLevel2(){
         var input = document.getElementById("advanced"); //get id
         localStorage.setItem("level", "advanced"); //save the value input
-        window.location.href="advanced/yes-no/q1.php"; //to next page
+        window.location.href="advanced/categories.php"; //to next page
     }
 </script>
 </html>

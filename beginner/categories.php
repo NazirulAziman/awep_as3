@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
     <!--external css here-->
-    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="../css/all.css">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -114,7 +114,11 @@
         font-family: indie flower;
         text-align: center; padding-top: 50px;
         color: blue;
-    }    
+    }
+    
+    #yes:hover, #mcq:hover, #fill:hover, #enumeration:hover{
+        cursor: pointer;
+    }
 </style>
 <body>
     <div class="container">
@@ -134,10 +138,10 @@
             <div class="box">
                 <div class="container">
                     <div class="left">
-                        <img src="img/spin.gif" alt="cat touch" class="icon">
+                        <img src="../img/spin.gif" alt="cat touch" class="icon">
                     </div>
                     <div class="right">
-                        <div class="txtBox">
+                        <div class="txtBox" id="yes" onclick="yes()">
                             <p class="txt">YES / NO</p>
                         </div>
                     </div>
@@ -146,10 +150,10 @@
             <div class="box">
                 <div class="container">
                     <div class="left">
-                        <img src="img/skate.gif" alt="cat blank" class="icon">
+                        <img src="../img/skate.gif" alt="cat blank" class="icon">
                     </div>
                     <div class="right">
-                        <div class="txtBox">
+                        <div class="txtBox" id="mcq" onclick="mcq()">
                             <p class="txt" style="padding-top: 10px;">MUTIPLE <br> CHOICE</p>
                         </div>
                     </div>
@@ -160,10 +164,10 @@
             <div class="box">
                 <div class="container">
                     <div class="left">
-                        <img src="img/dance.gif" alt="owl stay" class="icon">
+                        <img src="../img/dance.gif" alt="owl stay" class="icon">
                     </div>
                     <div class="right">
-                        <div class="txtBox">
+                        <div class="txtBox" id="fill" onclick="fill()">
                             <p class="txt" style="padding-top: 10px;">FILL IN THE <br> BLANKS</p>
                         </div>
                     </div>
@@ -172,10 +176,10 @@
             <div class="box">
                 <div class="container">
                     <div class="left">
-                        <img src="img/charge.gif" alt="owl greet" class="icon">
+                        <img src="../img/charge.gif" alt="owl greet" class="icon">
                     </div>
                     <div class="right">
-                        <div class="txtBox">
+                        <div class="txtBox" id="enumeration" onclick="enumeration()">
                             <p class="txt">ENUMERATION</p>
                         </div>
                     </div>
@@ -187,4 +191,32 @@
         <input type="submit" id="exit" value="Quit" class="levelTxt">
     </form>
 </body>
+
+
+<!--script here-->
+<script>
+    //for yes/no
+    function yes(){
+        window.location.href = "yes-no/q1.php";
+        localStorage.setItem("categories", "yes/no");
+    }
+
+    //for mcq
+    function mcq(){
+        window.location.href = "mcq/q1.php";
+        localStorage.setItem("categories", "mcq");
+    }
+
+    //for fill
+    function fill(){
+        window.location.href = "fill/q1.php";
+        localStorage.setItem("categories", "fill");
+    }
+
+    //for enumeration
+    function enumeration(){
+        window.location.href = "enumeration/q1.php";
+        localStorage.setItem("categories", "enumeration");
+    }
+</script>
 </html>

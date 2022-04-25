@@ -103,8 +103,9 @@
         localStorage.setItem("level", "");
         localStorage.setItem("score", "");
         localStorage.setItem("time", "");
+        localStorage.setItem("categories", "");
 
-        window.location.href = "player.php";
+        window.location.href = "instruction.php";
     }
 
     function sub1(){
