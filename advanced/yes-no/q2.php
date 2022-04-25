@@ -171,12 +171,22 @@
 
 <!-- Script here -->
 <script>
+    //variable
+    const timer = document.getElementById('stopwatch');
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+    var stoptime = true;
+    var mins = localStorage.getItem("min");
+    var secs = localStorage.getItem("sec");
+    
+
     function start(){
-        //starting
+        //starting display
         document.getElementById("question").style.display = "none";
         document.getElementById("button").style.display = "none";
 
-        //final
+        //final display
         document.getElementById("myPic").style.display = "block";
         document.getElementById("quest").style.display = "block";
         document.getElementById("yes").style.display = "block";
@@ -191,31 +201,34 @@
 
         //time
         setTimeout(function() {
-            localStorage.setItem("score", "0"); //save the value input
+            var exist = localStorage.getItem("score");
+            var final = parseInt(exist)+0; //add
+            localStorage.setItem("score", final); //save the value input
             stoptime = true; //time stopped when reach 1 min
-
-            localStorage.setItem("min", min);
-            localStorage.setItem("sec", sec);
-
-            var myTime = min + " : " + sec;
-            localStorage.setItem("time", myTime);
+            var seconds = parseInt(secs) + parseInt(sec);
+            var minutes = parseInt(mins) + parseInt(min);
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
             window.location.href="q3.php"; //to next page
         },60000);
     }
 
+    
     function addYes(){
         var input = document.getElementById("yes"); //get id
         var exist = localStorage.getItem("score");
         var final = parseInt(exist)+1; //add
         localStorage.setItem("score", final); //save the value input
+
+        var seconds = parseInt(secs) + parseInt(sec);
+        var minutes = parseInt(mins) + parseInt(min);
+
         if (stoptime == false) {
             stoptime = true;
-
-            localStorage.setItem("min", min);
-            localStorage.setItem("sec", sec);
-
-            var myTime = min + " : " + sec;
-            localStorage.setItem("time", myTime);
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
         }
         window.location.href="q3.php"; //to next page
     }
@@ -225,14 +238,15 @@
         var exist = localStorage.getItem("score");
         var final = parseInt(exist)+0; //add
         localStorage.setItem("score", final); //save the value input
+
+        var seconds = parseInt(secs) + parseInt(sec);
+        var minutes = parseInt(mins) + parseInt(min);
+
         if (stoptime == false) {
             stoptime = true;
-
-            localStorage.setItem("min", min);
-            localStorage.setItem("sec", sec);
-
-            var myTime = min + " : " + sec;
-            localStorage.setItem("time", myTime);
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
         }
         window.location.href="q3.php"; //to next page
     }
@@ -261,5 +275,6 @@
 
             setTimeout("timerCycle()", 1000);
         }
+    }
 </script>
 </html>

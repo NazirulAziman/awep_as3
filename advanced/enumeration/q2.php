@@ -147,11 +147,22 @@
         cursor: pointer;
         box-shadow: -10px 10px 2px 3px #FF7171;
     }
+    
+    #stopwatch {
+        display: none;
+        font-size: 80px;
+        font-family: indie flower;
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        color: black;
+        transform: translate(-50%, -55%);
+    }
 </style>
 <body>
     <!--starting-->
     <div class="qBox" id="question">
-        <h2>Question 11</h2>
+        <h2>Question 2</h2>
         <h1>Enumeration</h1>
     </div>
     <div class="goBtn" id="button" onclick="start()">
@@ -176,10 +187,22 @@
             <input type="button" class="btn" value="Submit here" id="submit" onclick="sub()">
         </div>
     </div>
+    <div id="stopwatch">
+        00:00
+    </div>
 </body>
 
 <!--script here-->
 <script>
+    //variable
+    const timer = document.getElementById('stopwatch');
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+    var stoptime = true;
+    var mins = localStorage.getItem("min");
+    var secs = localStorage.getItem("sec");
+
     function start(){
         //starting
         document.getElementById("question").style.display = "none";
@@ -187,6 +210,27 @@
 
         //final
         document.getElementById("myContainer").style.display = "flex";
+        document.getElementById("stopwatch").style.display = "block";
+
+        //start time
+        if (stoptime == true) {
+        stoptime = false;
+        timerCycle();
+        }
+
+        //time
+        setTimeout(function() {
+            var exist = localStorage.getItem("score");
+            var final = parseInt(exist)+0; //add
+            localStorage.setItem("score", final); //save the value input
+            stoptime = true; //time stopped when reach 1 min
+            var seconds = parseInt(secs) + parseInt(sec);
+            var minutes = parseInt(mins) + parseInt(min);
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
+            window.location.href="q3.php"; //to next page
+        },60000);
     }
 
     function sub(){
@@ -210,7 +254,42 @@
         }
 
         localStorage.setItem("score", final); //save the value input
-        window.location.href="q12.php"; //to next page
+        var seconds = parseInt(secs) + parseInt(sec);
+        var minutes = parseInt(mins) + parseInt(min);
+
+        if (stoptime == false) {
+            stoptime = true;
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
+        }
+        window.location.href="q3.php"; //to next page
+    }
+
+    //function for timer
+    function timerCycle() {
+        if (stoptime == false) {
+        sec = parseInt(sec);
+        min = parseInt(min);
+        hr = parseInt(hr);
+
+        sec = sec + 1;
+
+        if (sec == 60) {
+            min = min + 1;
+            sec = 0;
+        }
+
+        if (sec < 10 || sec == 0) {
+            sec = '0' + sec;
+        }
+        if (min < 10 || min == 0) {
+            min = '0' + min;
+        }
+            timer.innerHTML = min + ':' + sec;
+
+            setTimeout("timerCycle()", 1000);
+        }
     }
 </script>
 </html>

@@ -6,10 +6,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
     <!--external css here-->
     <link rel="stylesheet" href="../../css/alt.css">
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,6 +127,16 @@
         padding-left: 0px;
         padding-top: 60px;
     }
+
+    #stopwatch {
+        display: none;
+        font-size: 100px;
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        color: black;
+        transform: translate(-50%, -55%);
+    }
 </style>
 <body>
     <!--starting-->
@@ -169,11 +180,11 @@
     var stoptime = true;
 
     function start(){
-        //starting
+        //starting display
         document.getElementById("question").style.display = "none";
         document.getElementById("button").style.display = "none";
 
-        //final
+        //final display
         document.getElementById("myPic").style.display = "block";
         document.getElementById("quest").style.display = "block";
         document.getElementById("yes").style.display = "block";
@@ -199,10 +210,12 @@
             window.location.href="q2.php"; //to next page
         },60000);
     }
+    
 
     function addYes(){
         var input = document.getElementById("yes"); //get id
-        localStorage.setItem("score", "1"); //save the value input
+        localStorage.setItem("score", "0"); //save the value input
+        
         if (stoptime == false) {
             stoptime = true;
 
@@ -212,12 +225,14 @@
             var myTime = min + " : " + sec;
             localStorage.setItem("time", myTime);
         }
+
         window.location.href="q2.php"; //to next page
     }
 
     function addNo(){
         var input = document.getElementById("no"); //get id
-        localStorage.setItem("score", "0"); //save the value input
+        localStorage.setItem("score", "1"); //save the value input
+
         if (stoptime == false) {
             stoptime = true;
 
@@ -227,6 +242,7 @@
             var myTime = min + " : " + sec;
             localStorage.setItem("time", myTime);
         }
+
         window.location.href="q2.php"; //to next page
     }
 
@@ -254,5 +270,6 @@
 
             setTimeout("timerCycle()", 1000);
         }
+    }
 </script>
 </html>

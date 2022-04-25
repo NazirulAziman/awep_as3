@@ -153,6 +153,9 @@
         <p style="text-align: center">Answer List : <br> China / German / Canada / Brunei / Egypt</p>
     </div>
     <input type="button" class="btn" value="Submit" id="submit" onclick="sub()">
+    <div id="stopwatch">
+        00:00
+    </div>
 </body>
 
 <!-- Script here -->

@@ -144,7 +144,7 @@
 <body>
     <!--starting-->
     <div class="qBox" id="question">
-        <h2>Question 6</h2>
+        <h2>Question 3</h2>
         <h1>Multiple <br> Choice</h1>
     </div>
     <div class="goBtn" id="button" onclick="start()">
@@ -272,6 +272,32 @@
             localStorage.setItem("time", minutes + " : " + seconds);
         }
         window.location.href="over.php"; //to next page
+    }
+
+    //function for timer
+    function timerCycle() {
+        if (stoptime == false) {
+        sec = parseInt(sec);
+        min = parseInt(min);
+        hr = parseInt(hr);
+
+        sec = sec + 1;
+
+        if (sec == 60) {
+            min = min + 1;
+            sec = 0;
+        }
+
+        if (sec < 10 || sec == 0) {
+            sec = '0' + sec;
+        }
+        if (min < 10 || min == 0) {
+            min = '0' + min;
+        }
+            timer.innerHTML = min + ':' + sec;
+
+            setTimeout("timerCycle()", 1000);
+        }
     }
 </script>
 </html>

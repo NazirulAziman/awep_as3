@@ -128,9 +128,7 @@
             </div>
         </div>
         <div id="right">
-            <form action="player.php" method="post">
-                <input type="submit" class="btn" value="Next >">
-            </form>
+
         </div>
     </div>
     <div class="container">

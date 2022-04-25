@@ -116,7 +116,7 @@
         color: blue;
     }
     
-    #yess:hover, #mcqs:hover, #fills:hover, #enumerations:hover{
+    #yes:hover, #mcq:hover, #fill:hover, #enumeration:hover{
         cursor: pointer;
     }
 </style>
@@ -128,9 +128,7 @@
             </div>
         </div>
         <div id="right">
-            <form action="player.php" method="post">
-                <input type="submit" class="btn" value="Next >">
-            </form>
+            
         </div>
     </div>
     <div class="container">
