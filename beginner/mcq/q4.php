@@ -130,6 +130,16 @@
         padding-left: 0px;
         padding-top: 60px;
     }
+
+    #stopwatch {
+        display: none;
+        font-size: 80px;
+        position: absolute;
+        bottom: 35%;
+        left: 50%;
+        color: black;
+        transform: translate(-50%, -55%);
+    }
 </style>
 <body>
     <!--starting-->
@@ -153,7 +163,7 @@
             </div>
         </div>
         <div id="center">
-            <div id="second" onclick="sec()">
+            <div id="second" onclick="second()">
                 <p class="txt">5</p>
             </div>
         </div>
@@ -163,10 +173,22 @@
             </div>
         </div>
     </div>
+    <div id="stopwatch">
+        00:00
+    </div>
 </body>
 
 <!-- Script here -->
 <script>
+    //variable
+    const timer = document.getElementById('stopwatch');
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+    var stoptime = true;
+    var mins = localStorage.getItem("min");
+    var secs = localStorage.getItem("sec");
+
     function start(){
         //starting
         document.getElementById("question").style.display = "none";
@@ -178,6 +200,27 @@
         document.getElementById("first").style.display = "block";
         document.getElementById("second").style.display = "block";
         document.getElementById("third").style.display = "block";
+        document.getElementById("stopwatch").style.display = "block";
+
+        //start time
+        if (stoptime == true) {
+        stoptime = false;
+        timerCycle();
+        }
+
+        //time
+        setTimeout(function() {
+            var exist = localStorage.getItem("score");
+            var final = parseInt(exist)+0; //add
+            localStorage.setItem("score", final); //save the value input
+            stoptime = true; //time stopped when reach 1 min
+            var seconds = parseInt(secs) + parseInt(sec);
+            var minutes = parseInt(mins) + parseInt(min);
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
+            window.location.href="q5.php"; //to next page
+        },60000);
     }
 
     function first(){
@@ -185,14 +228,32 @@
         var exist = localStorage.getItem("score");
         var final = parseInt(exist)+0; //add
         localStorage.setItem("score", final); //save the value input
+        var seconds = parseInt(secs) + parseInt(sec);
+        var minutes = parseInt(mins) + parseInt(min);
+
+        if (stoptime == false) {
+            stoptime = true;
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
+        }
         window.location.href="q5.php"; //to next page
     }
 
-    function sec(){
+    function second(){
         var input = document.getElementById("second"); //get id
         var exist = localStorage.getItem("score");
         var final = parseInt(exist)+1; //add
         localStorage.setItem("score", final); //save the value input
+        var seconds = parseInt(secs) + parseInt(sec);
+        var minutes = parseInt(mins) + parseInt(min);
+
+        if (stoptime == false) {
+            stoptime = true;
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
+        }
         window.location.href="q5.php"; //to next page
     }
 
@@ -201,7 +262,42 @@
         var exist = localStorage.getItem("score");
         var final = parseInt(exist)+0; //add
         localStorage.setItem("score", final); //save the value input
+        var seconds = parseInt(secs) + parseInt(sec);
+        var minutes = parseInt(mins) + parseInt(min);
+
+        if (stoptime == false) {
+            stoptime = true;
+            localStorage.setItem("sec", seconds);
+            localStorage.setItem("min", minutes);
+            localStorage.setItem("time", minutes + " : " + seconds);
+        }
         window.location.href="q5.php"; //to next page
+    }
+
+    //function for timer
+    function timerCycle() {
+        if (stoptime == false) {
+        sec = parseInt(sec);
+        min = parseInt(min);
+        hr = parseInt(hr);
+
+        sec = sec + 1;
+
+        if (sec == 60) {
+            min = min + 1;
+            sec = 0;
+        }
+
+        if (sec < 10 || sec == 0) {
+            sec = '0' + sec;
+        }
+        if (min < 10 || min == 0) {
+            min = '0' + min;
+        }
+            timer.innerHTML = min + ':' + sec;
+
+            setTimeout("timerCycle()", 1000);
+        }
     }
 </script>
 </html>
