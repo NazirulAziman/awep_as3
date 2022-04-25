@@ -185,7 +185,7 @@
             </div>
         </div>
     </div>
-    <form action="index.php" method="post">
+    <form action="../index.php" method="post">
         <input type="submit" id="exit" value="Quit" class="levelTxt">
     </form>
 </body>
