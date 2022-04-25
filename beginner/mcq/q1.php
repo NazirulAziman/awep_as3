@@ -135,7 +135,7 @@
         display: none;
         font-size: 80px;
         position: absolute;
-        bottom: 35%;
+        bottom: 40%;
         left: 50%;
         color: black;
         transform: translate(-50%, -55%);
@@ -144,7 +144,7 @@
 <body>
     <!--starting-->
     <div class="qBox" id="question">
-        <h2>Question 4</h2>
+        <h2>Question 1</h2>
         <h1>Multiple <br> Choice</h1>
     </div>
     <div class="goBtn" id="button" onclick="start()">

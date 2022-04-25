@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
     <!--external css here-->
-    <link rel="stylesheet" href="../css/alt.css">
+    <link rel="stylesheet" href="../../css/alt.css">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,6 +56,10 @@
     #myBtn:hover{
         cursor: pointer;
     }
+
+    #forName, #forLevel, #forScore, #forTime, #forCat{
+       display: none;
+    }
 </style>
 <body>
     <div id="title">
@@ -63,23 +67,81 @@
     </div>
     <h1 id="myText"></h1>
     <h1 id="congrats"></h1>
-    <input type="button" id="myBtn" onclick="sub()" value="Home">
+    <form action="" method="post">
+        <input type="text" id="forName" name="name">
+        <input type="text" id="forLevel" name="level">
+        <input type="text" id="forScore" name="score">
+        <input type="text" id="forTime" name="time">
+        <input type="text" id="forCat" name="cat">
+        <input type="submit" id="myBtn" value="save">
+    </form>
+
+
+    <!--php mysql database here-->
+    <?php
+    // Create connection
+    $conn = new mysqli('localhost', 'root', '', 'trivia');
+
+    //get values
+    $name = $_POST['name'];
+    $score = $_POST['score'];
+    $level = $_POST['level'];
+    $time = $_POST['time'];
+    $cat = $_POST['cat'];
+
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "INSERT INTO players (`username`,`score`,`level`,`time`,`categories`)
+    VALUES ('$name','$score','$level','$time','$cat')";
+
+    if ($conn->query($sql) === TRUE) {
+        //echo "New record created successfully";
+    } else {
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+    ?>
 </body>
 
 <!--script here-->
 <script>
     finalScore = localStorage.getItem("score");
+    username = localStorage.getItem("name");
     document.getElementById('myText').innerHTML = finalScore + " / 3";
     if(finalScore == "3"){
-        document.getElementById('congrats').innerHTML = "Congratulations!"
+        document.getElementById('congrats').innerHTML = "Congratulations! " + username;
     }else if(finalScore == "2"){
-        document.getElementById('congrats').innerHTML = "Not Bad!"
+        document.getElementById('congrats').innerHTML = "Not Bad! " + username;
     }else{
-        document.getElementById('congrats').innerHTML = "Try Again!"
+        document.getElementById('congrats').innerHTML = "Try Again! " + username;
     }
 
-    function sub(){
-        window.location.href = "../index.php";
-    }
+
+    //get item from localstorage
+    var myName = localStorage.getItem("name");
+    var myLevel = localStorage.getItem("level");
+    var myScore = localStorage.getItem("score");
+    var myTime = localStorage.getItem("time");
+    var myCat = localStorage.getItem("categories");
+
+    //display it to input field
+    document.getElementById("forName").value = myName;
+    document.getElementById("forLevel").value = myLevel;
+    document.getElementById("forScore").value = myScore;
+    document.getElementById("forTime").value = myTime;
+    document.getElementById("forCat").value = myCat;
+
+    setTimeout(function(){
+        window.location.href = "../../index.php"
+    },10000)
+
 </script>
+
+
+
 </html>

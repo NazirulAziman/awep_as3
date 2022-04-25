@@ -101,7 +101,7 @@
     function sub(){
         localStorage.setItem("name", "");
         localStorage.setItem("level", "");
-        localStorage.setItem("score", "");
+        localStorage.setItem("score", "0");
         localStorage.setItem("time", "");
         localStorage.setItem("categories", "");
 

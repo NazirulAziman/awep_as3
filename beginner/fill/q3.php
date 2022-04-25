@@ -170,7 +170,7 @@
         }
         
         localStorage.setItem("score", final); //save the value input
-        window.location.href="../enumeration/q10.php"; //to next page
+        window.location.href="over.php"; //to next page
     }
 </script>
 </html>

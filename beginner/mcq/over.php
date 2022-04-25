@@ -68,7 +68,7 @@
 
 <!--script here-->
 <script>
-    finalScore = localStorage.getItem("score");
+    var finalScore = localStorage.getItem("score");
     document.getElementById('myText').innerHTML = finalScore + " / 3";
     if(finalScore == "3"){
         document.getElementById('congrats').innerHTML = "Congratulations!"
@@ -79,7 +79,7 @@
     }
 
     function sub(){
-        window.location.href = "../index.php";
+        window.location.href = "../../index.php";
     }
 </script>
 </html>

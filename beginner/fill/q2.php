@@ -168,7 +168,7 @@
         }
         
         localStorage.setItem("score", final); //save the value input
-        window.location.href="q9.php"; //to next page
+        window.location.href="q3.php"; //to next page
     }
 </script>
 </html>

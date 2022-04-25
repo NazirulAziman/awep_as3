@@ -135,7 +135,7 @@
         display: none;
         font-size: 80px;
         position: absolute;
-        bottom: 35%;
+        bottom: 40%;
         left: 50%;
         color: black;
         transform: translate(-50%, -55%);
@@ -144,7 +144,7 @@
 <body>
     <!--starting-->
     <div class="qBox" id="question">
-        <h2>Question 5</h2>
+        <h2>Question 2</h2>
         <h1>Multiple <br> Choice</h1>
     </div>
     <div class="goBtn" id="button" onclick="start()">
@@ -180,6 +180,15 @@
 
 <!-- Script here -->
 <script>
+    //variable
+    const timer = document.getElementById('stopwatch');
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+    var stoptime = true;
+    var mins = localStorage.getItem("min");
+    var secs = localStorage.getItem("sec");
+
     function start(){
         //starting
         document.getElementById("question").style.display = "none";
@@ -210,7 +219,7 @@
             localStorage.setItem("sec", seconds);
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
-            window.location.href="q6.php"; //to next page
+            window.location.href="q3.php"; //to next page
         },60000);
     }
 
@@ -228,7 +237,7 @@
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
         }
-        window.location.href="q6.php"; //to next page
+        window.location.href="q3.php"; //to next page
     }
 
     function second(){
@@ -245,7 +254,7 @@
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
         }
-        window.location.href="q6.php"; //to next page
+        window.location.href="q3.php"; //to next page
     }
 
     function third(){
@@ -262,7 +271,7 @@
             localStorage.setItem("min", minutes);
             localStorage.setItem("time", minutes + " : " + seconds);
         }
-        window.location.href="q6.php"; //to next page
+        window.location.href="q3.php"; //to next page
     }
 
     //function for timer
