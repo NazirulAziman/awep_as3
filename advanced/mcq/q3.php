@@ -217,8 +217,7 @@
             var seconds = parseInt(secs) + parseInt(sec);
             var minutes = parseInt(mins) + parseInt(min);
             localStorage.setItem("sec", seconds);
-            localStorage.setItem("min", minutes);
-            localStorage.setItem("time", minutes + "min : " + seconds + "sec");
+            localStorage.setItem("time", seconds + "sec");
             window.location.href="over.php"; //to next page
         },60000);
     }
@@ -234,8 +233,7 @@
         if (stoptime == false) {
             stoptime = true;
             localStorage.setItem("sec", seconds);
-            localStorage.setItem("min", minutes);
-            localStorage.setItem("time", minutes + "min : " + seconds + "sec");
+            localStorage.setItem("time", seconds + "sec");
         }
         window.location.href="over.php"; //to next page
     }
@@ -251,8 +249,7 @@
         if (stoptime == false) {
             stoptime = true;
             localStorage.setItem("sec", seconds);
-            localStorage.setItem("min", minutes);
-            localStorage.setItem("time", minutes + "min : " + seconds + "sec");
+            localStorage.setItem("time", seconds + "sec");
         }
         window.location.href="over.php"; //to next page
     }
@@ -268,8 +265,7 @@
         if (stoptime == false) {
             stoptime = true;
             localStorage.setItem("sec", seconds);
-            localStorage.setItem("min", minutes);
-            localStorage.setItem("time", minutes + "min : " + seconds + "sec");
+            localStorage.setItem("time", seconds + "sec");
         }
         window.location.href="over.php"; //to next page
     }
