@@ -218,7 +218,7 @@
             var minutes = parseInt(mins) + parseInt(min);
             localStorage.setItem("sec", seconds);
             localStorage.setItem("min", minutes);
-            localStorage.setItem("time", minutes + " : " + seconds);
+            localStorage.setItem("time", minutes + "min : " + seconds + "sec");
             window.location.href="q3.php"; //to next page
         },60000);
     }
@@ -235,7 +235,7 @@
             stoptime = true;
             localStorage.setItem("sec", seconds);
             localStorage.setItem("min", minutes);
-            localStorage.setItem("time", minutes + " : " + seconds);
+            localStorage.setItem("time", minutes + "min : " + seconds + "sec");
         }
         window.location.href="over.php"; //to next page
     }
@@ -252,7 +252,7 @@
             stoptime = true;
             localStorage.setItem("sec", seconds);
             localStorage.setItem("min", minutes);
-            localStorage.setItem("time", minutes + " : " + seconds);
+            localStorage.setItem("time", minutes + "min : " + seconds + "sec");
         }
         window.location.href="over.php"; //to next page
     }
@@ -269,7 +269,7 @@
             stoptime = true;
             localStorage.setItem("sec", seconds);
             localStorage.setItem("min", minutes);
-            localStorage.setItem("time", minutes + " : " + seconds);
+            localStorage.setItem("time", minutes + "min : " + seconds + "sec");
         }
         window.location.href="over.php"; //to next page
     }
