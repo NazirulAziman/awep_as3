@@ -79,9 +79,12 @@
 
     <!--php mysql database here-->
     <?php
+    //if submit button is clicked
     if(isset($_POST['submit'])){
+        //create connection to trivia database
         $conn = mysqli_connect('localhost', 'root', '', 'trivia');
 
+        //get input name and make it as variable
         $name = $_POST['name'];
         $score = $_POST['score'];
         $level = $_POST['level'];
@@ -90,11 +93,12 @@
         
 
         if(!empty($name)){
+            //insert detail from localstorage to database
             $sql = "INSERT INTO players (`username`,`score`,`level`,`time`,`categories`)
                     VALUES ('$name','$score','$level','$time','$cat')";
 
             $result = mysqli_query($conn,$sql);
-            header("refresh: 1; url=../../index.php");
+            header("refresh: 1; url=../../gameOver.php"); //this will redirect to gameOver page
         }
     }
     

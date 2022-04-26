@@ -94,7 +94,7 @@
                     VALUES ('$name','$score','$level','$time','$cat')";
 
             $result = mysqli_query($conn,$sql);
-            header("refresh: 1; url=../../index.php");
+            header("refresh: 1; url=../../gameOver.php");
         }
     }
     
