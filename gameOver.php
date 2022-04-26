@@ -54,6 +54,6 @@
 <script>
     setTimeout(function(){
         window.location.href = "index.php";
-    },5000)
+    },5000) //redirect to index.php page for 5 seconds
 </script>
 </html>

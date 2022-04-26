@@ -20,14 +20,14 @@
 <style>
     .board{
         display: block;
-        width: 1200px; height: 850px;
+        width: 1200px; height: 950px;
         border-radius: 30px;
-        margin-left: 100px; margin-top: 150px;
+        margin-left: 100px; margin-top: 50px;
         background-color: white;
         box-shadow: -15px 15px 2px 3px blue;
         padding-left: 30px;
         font-family: indie flower;
-        font-size: 45px;
+        font-size: 24px;
         color: blue;
     }
     #left, #right{
@@ -62,12 +62,90 @@
         cursor: pointer;
         box-shadow: -10px 10px 2px 3px #3967D8;
     }
+
+    #myTable{
+        width: 90%;
+        font-size: 30px;
+        font-family: arial narrow;
+        border: 1px solid;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    th{
+        background-color: #F6EAB8;
+    }
+    th, td{
+        border: 1px solid;
+        padding: 8px;
+    }
 </style>
 <body>
     <div class="container">
         <div id="left">
             <div class="board">
-            <h1>Scoreboard</h1>
+            <!--connect database for beginner-->
+            <?php
+            $conn = mysqli_connect('localhost', 'root', '', 'trivia');
+              $query="SELECT * FROM players WHERE `level` = 'beginner' ORDER BY `score` DESC, `time` ASC LIMIT 5";
+              $res = $conn -> query ($query);
+            ?>
+            <h1 style="padding-top: 20px;">Scoreboard (Beginner)</h1>
+            <!--table for beginner-->
+            <table id="myTable">
+                <tr>
+                    <th>Username</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                    <th>Categories</th>
+                </tr>
+                <?php
+                    if($res){
+                        while ($row=$res -> fetch_assoc())
+                    {
+                ?>
+                <tr>
+                    <td><?php echo $row["username"]; ?></td>
+                    <td><?php echo $row["score"]; ?></td>
+                    <td><?php echo $row["time"]; ?></td>
+                    <td><?php echo $row["categories"]; ?></td>
+                </tr>
+                <?php
+                        }
+                    }
+                ?>
+            </table>
+            
+            <!--connect database for advanced-->
+            <?php
+            $conn = mysqli_connect('localhost', 'root', '', 'trivia');
+              $query="SELECT * FROM players WHERE `level`= 'advanced' ORDER BY `score` DESC, `time` ASC LIMIT 5";
+              $res = $conn -> query ($query);
+            ?>
+            <h1>Scoreboard (Advanced)</h1>
+            <!--table for advanced-->
+            <table id="myTable">
+                <tr>
+                    <th>Username</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                    <th>Categories</th>
+                </tr>
+                <?php
+                    if($res){
+                        while ($row=$res -> fetch_assoc())
+                    {
+                ?>
+                <tr>
+                    <td><?php echo $row["username"]; ?></td>
+                    <td><?php echo $row["score"]; ?></td>
+                    <td><?php echo $row["time"]; ?></td>
+                    <td><?php echo $row["categories"]; ?></td>
+                </tr>
+                <?php
+                        }
+                    }
+                ?>
+            </table>
             </div>
         </div>
         <div id="right">
@@ -78,4 +156,5 @@
         </div>
     </div>
 </body>
+
 </html>
