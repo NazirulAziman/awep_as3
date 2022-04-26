@@ -31,8 +31,8 @@
         font-family: permanent marker;
         color: blue;
     }
-    #left, #right{
-        flex: 50%;
+    #left{
+        flex: 100%;
         height: 62.5vh;
     }
     #full{
@@ -126,9 +126,7 @@
             </form>
         </div>
         <div id="right">
-            <div id="choose">
-                <h1 class="levelTxt">Choose existing player</h1>
-            </div>
+            
         </div>
         <div id="full">
             <div class="insert">

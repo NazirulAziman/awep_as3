@@ -240,7 +240,7 @@
         }
         window.location.href="q3.php"; //to next page
     }
-    function sec(){
+    function second(){
         var input = document.getElementById("second"); //get id
         var exist = localStorage.getItem("score");
         var final = parseInt(exist)+0; //add

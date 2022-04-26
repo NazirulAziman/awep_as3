@@ -128,7 +128,4 @@
     document.getElementById("forTime").value = myTime;
     document.getElementById("forCat").value = myCat;
 </script>
-
-
-
 </html>
