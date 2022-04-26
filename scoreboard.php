@@ -95,7 +95,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Score</th>
-                    <th>Time</th>
+                    <th>Time (sec)</th>
                     <th>Categories</th>
                 </tr>
                 <?php
@@ -127,7 +127,7 @@
                 <tr>
                     <th>Username</th>
                     <th>Score</th>
-                    <th>Time</th>
+                    <th>Time (sec)</th>
                     <th>Categories</th>
                 </tr>
                 <?php

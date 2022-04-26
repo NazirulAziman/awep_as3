@@ -116,6 +116,7 @@
         localStorage.setItem("score", "0");
         localStorage.setItem("time", "");
         localStorage.setItem("categories", "");
+        localStorage.setItem("sec", "0");
 
         window.location.href = "instruction.php";
     }
